@@ -92,12 +92,21 @@ Contributors:
 
     </style>
 
+    <nuxeo-connection id="nxcon"></nuxeo-connection>
+
     <div class="breadcrumb">
       <template is="dom-repeat" items="[[_breadcrumb(document)]]">
-        <a href$="[[urlFor('browse', item.path)]]" class$="breadcrumb-item [[_computeCssClass(index, document)]]"><span>[[item.title]]</span></a>
+        <a href$="[[urlFor('browse', item.path)]]" class$="breadcrumb-item [[_computeCssClass(index, document)]]">
+          <span>[[item.title]]</span>
+        </a>
         <span class$="breadcrumb-divider [[_computeCssClass(index, document)]]">/</span>
       </template>
+      <div class="current" class="breadcrumb-item breadcrumb-item-current">
+        <iron-icon src="[[_icon(document)]]"></iron-icon>
+        <span>[[document.title]]</span>
+      <div>
     </div>
+
 
   </template>
 
@@ -119,11 +128,12 @@ Contributors:
 
         _breadcrumb: function() {
           if (this._enrichers) {
-            return this._enrichers.breadcrumb.entries;
+            return this._enrichers.breadcrumb.entries.splice(0, this._enrichers.breadcrumb.entries.length - 1);
           }
         },
 
         _computeCssClass: function(index) {
+          console.log('_computeCssClass');
           if (this._enrichers) {
             if (index === this._enrichers.breadcrumb.entries.length - 1) {
               return 'breadcrumb-item-current';
@@ -132,6 +142,19 @@ Contributors:
             } else {
               return 'breadcrumb-item-ancestor';
             }
+          }
+        },
+
+        _isLastFile: function() {
+          if (this.document) {
+            return this.document.facets.indexOf('Folderish') === -1;
+          }
+        },
+
+        _icon: function(document)  {
+          if (document) {
+            var baseUrl = this.$.nxcon.url;
+            return baseUrl + document.properties['common:icon'];
           }
         },
 
