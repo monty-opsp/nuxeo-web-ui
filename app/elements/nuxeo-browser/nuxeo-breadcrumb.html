@@ -33,51 +33,61 @@ Contributors:
       }
 
       .breadcrumb, .shortBreadcrumb {
-        margin: 0 1.5em 0 0;
-        color: var(--nuxeo-header-text-color);
+        margin: -.5rem 1.5em 0 0;
+        color: var(--nuxeo-text-light);
         font-weight: 300;
         white-space: nowrap;
+        font-size: .95rem;
+        max-width: 20em;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .breadcrumb-item {
         text-decoration: none;
       }
 
-      .breadcrumb a {
-        color: var(--nuxeo-header-text-color);
-      }
-
-      a.breadcrumb-item-current {
+      .current {
         font-weight: 600;
-        max-width: 12em;
-        display: inline-block;
-        color: var(--nuxeo-header-title-color);
+        max-width: 20em;
+        display: block;
+        color: var(--nuxeo-link-color);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        vertical-align: bottom;
       }
 
+      .current iron-icon,
+      .current iron-icon img {
+        width: .9rem;
+        height: .9rem;
+        margin-top: -0.2em;
+      }
+
+      a.nuxeo-breadcrumb,
       .breadcrumb-divider {
-        font-size: 20px;
+        color: var(--nuxeo-text-light);
+        font-size: .65rem;
       }
 
-      a.breadcrumb-item-parent {
-        opacity: .8;
+      a.nuxeo-breadcrumb:hover {
+        color: var(--nuxeo-link-hover-color);
       }
 
-      a.breadcrumb-item-parent:hover {
-        opacity: 1;
-      }
-
-      a.breadcrumb-item-parent:before{
+      /*a.breadcrumb-item-ancestor:last-of-type:before{
         content: '«';
         padding-right: .4em;
+      }*/
+
+      a.breadcrumb-item-ancestor,
+      .breadcrumb-divider:last-of-type {
+        display: none;
       }
 
-      .breadcrumb-divider:last-of-type,
-      .breadcrumb-item-ancestor {
-        display: none;
+      a.breadcrumb-item-ancestor:nth-last-child(-n+1),
+      a.breadcrumb-item-ancestor:nth-last-child(-n+2)
+      a.breadcrumb-item-ancestor:nth-last-child(-n+3) {
+        display: inline-block;
       }
 
       @media (max-width: 1280px) {

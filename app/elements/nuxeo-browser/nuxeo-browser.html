@@ -40,7 +40,7 @@ Contributors:
 
       paper-dropdown-menu {
         --paper-input-container-underline: {
-          display: none;
+            display: none;
         };
         --paper-input-container-input: {
           font-size: 18px;
@@ -48,8 +48,15 @@ Contributors:
           text-align: left;
           color: var(--nuxeo-header-text-color);
         };
+        --paper-dropdown-menu-input: {
+          border-bottom: none;
+        };
         padding: .3em 0 .5em .5em;
         box-shadow: 1px 0 0 rgba(0,0,0,0.2) inset;
+      }
+
+      ::content .unfocused-line.paper-input-container {
+        background-color: transparent;
       }
 
       ::content .unfocused-line.paper-input-container {
