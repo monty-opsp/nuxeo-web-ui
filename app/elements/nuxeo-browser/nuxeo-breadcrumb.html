@@ -33,7 +33,7 @@ Contributors:
       }
 
       .breadcrumb, .shortBreadcrumb {
-        margin: -.5rem 1.5em 0 0;
+        margin: 0 1.5em 0 0;
         color: var(--nuxeo-text-light);
         font-weight: 300;
         white-space: nowrap;
@@ -41,6 +41,10 @@ Contributors:
         max-width: 20em;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+
+      .breadcrumb .breadcrumb-item-ancestor {
+        margin-top: -0.7rem;
       }
 
       .breadcrumb-item {
@@ -79,7 +83,6 @@ Contributors:
         padding-right: .4em;
       }*/
 
-      a.breadcrumb-item-ancestor,
       .breadcrumb-divider:last-of-type {
         display: none;
       }
@@ -105,12 +108,14 @@ Contributors:
     <nuxeo-connection id="nxcon"></nuxeo-connection>
 
     <div class="breadcrumb">
-      <template is="dom-repeat" items="[[_breadcrumb(document)]]">
-        <a href$="[[urlFor('browse', item.path)]]" class$="breadcrumb-item [[_computeCssClass(index, document)]]">
-          <span>[[item.title]]</span>
-        </a>
-        <span class$="breadcrumb-divider [[_computeCssClass(index, document)]]">/</span>
-      </template>
+      <div class="ancestors">
+        <template is="dom-repeat" items="[[_breadcrumb(document)]]">
+          <a href$="[[urlFor('browse', item.path)]]" class$="breadcrumb-item [[_computeCssClass(index, document)]]">
+            <span>[[item.title]]</span>
+          </a>
+          <span class$="breadcrumb-divider [[_computeCssClass(index, document)]]">/</span>
+        </template>
+      </div>
       <div class="current" class="breadcrumb-item breadcrumb-item-current">
         <iron-icon src="[[_icon(document)]]"></iron-icon>
         <span>[[document.title]]</span>
