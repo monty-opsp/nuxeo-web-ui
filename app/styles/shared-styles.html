@@ -5,10 +5,17 @@
       /* --
       Global styles
       -- */
+      :root {
+        --paper-font-common-base: {
+          var(--nuxeo-app-font);
+        };
+      }
+
       body {
         background: var(--nuxeo-page-background);
         font-family: var(--nuxeo-app-font);
-        color: #333;
+        font-size: 15px;
+        color: var(--nuxeo-text-default);
         margin: 0;
       }
 
@@ -24,7 +31,7 @@
       }
 
       .sep {
-        border-top: 1px solid #e8e8e8;
+        border-top: var(--nuxeo-border);
       }
 
       /* --
@@ -45,7 +52,7 @@
       }
 
       paper-header-panel .content {
-        padding: 2.5em 2em;
+        padding: 2.5em 3em;
       }
 
       paper-header-panel#mainContainer {
@@ -54,10 +61,10 @@
 
       .paper-header {
         height: 59px;
-        background: var(--nuxeo-header-background);
         color: var(--nuxeo-header-title-color);
+        background: var(--nuxeo-header-background);
         box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
-        font-size: 1.2em;
+        font-size: 1.05em;
         font-weight: 600;
         padding: 0 4.2em 0 1.7em;
         @apply(--layout-horizontal);
@@ -165,6 +172,11 @@
         };
       }
 
+      ::content paper-card[elevation="0"],
+      ::content paper-card[elevation="1"] {
+        box-shadow: none;
+      }
+
       paper-card.block {
         display: block;
       }
@@ -176,7 +188,7 @@
 
       .card-section {
         padding: 16px 0;
-        position: relative;;
+        position: relative;
       }
 
       /* --
@@ -192,6 +204,10 @@
 
       .capitalize {
         text-transform: capitalize;
+      }
+
+      ::content .focused-line.paper-input-container {
+        background-color: var(--nuxeo-primary-color);
       }
 
       /* --

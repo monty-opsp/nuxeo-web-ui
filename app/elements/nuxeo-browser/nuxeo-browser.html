@@ -43,16 +43,17 @@ Contributors:
             display: none;
         };
         --paper-input-container-input: {
-          font-size: 18px;
+          font-size: 1.05em;
           font-weight: 400;
+          font-family: var(--nuxeo-app-font);
           text-align: left;
-          color: var(--nuxeo-header-text-color);
+          color: var(--nuxeo-text-default);
         };
         --paper-dropdown-menu-input: {
           border-bottom: none;
         };
-        padding: .3em 0 .5em .5em;
-        box-shadow: 1px 0 0 rgba(0,0,0,0.2) inset;
+        padding-left: 1em;
+        background-color: rgba(0,0,0,0.05);
       }
 
       ::content .unfocused-line.paper-input-container {
@@ -61,14 +62,15 @@ Contributors:
 
       ::content .unfocused-line.paper-input-container {
         background-color: transparent;
-      }
-
-      ::content paper-input-container .input-content.paper-input-container {
-        flex-direction: row-reverse;
       }
 
       ::content paper-input-container .input-content iron-icon {
         margin-right: .3em;
+        color: var(--nuxeo-link-hover-color);
+      }
+
+      ::content .focused-line.paper-input-container {
+        background-color: transparent;
       }
 
       section, iron-pages, .content {
@@ -142,7 +144,7 @@ Contributors:
             </paper-menu>
           </paper-dropdown-menu>
 
-          <nuxeo-document-actions class="horizontal flex layout end-justified"
+          <nuxeo-document-actions class="horizontal layout end-justified"
             context="[[actionContext]]"></nuxeo-document-actions>
 
         </paper-toolbar>
