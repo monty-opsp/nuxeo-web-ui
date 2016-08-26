@@ -59,20 +59,37 @@
         background-color: var(--nuxeo-page-background);
       }
 
-      paper-item {
+      paper-item,
+      paper-icon-item {
         font-size: .9em;
         min-height: 2.5em;
       }
 
-      paper-item iron-icon {
+      paper-item iron-icon,
+      paper-icon-item iron-icon {
         width: 1em;
         height: 1em;
         margin-right: .5em;
       }
 
-      paper-item:hover {
+      ::content paper-icon-item #contentIcon {
+        width: 1.5em;
+      }
+
+      paper-item:hover,
+      paper-icon-item:hover {
         color: var(--nuxeo-link-hover-color);
         cursor: pointer;
+        background-color: #fafafa;
+      }
+
+      paper-icon-item {
+        --paper-item-focused-before: {
+          background: transparent;
+        };
+        --paper-item-focused: {
+          background: transparent;
+        };
       }
 
       .paper-header {
