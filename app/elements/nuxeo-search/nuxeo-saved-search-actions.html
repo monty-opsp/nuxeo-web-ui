@@ -45,14 +45,14 @@ Contributors:
     </style>
 
     <div class="horizontal layout center">
-      <paper-button on-click="_saveSearchAs" hidden$="[[!_showSaveAs(searchDoc, searchLoaded,dirty)]]">
+      <paper-button noink no-animations on-click="_saveSearchAs" hidden$="[[!_showSaveAs(searchDoc, searchLoaded,dirty)]]">
          <iron-icon icon="add"></iron-icon>[[i18n('ui.app.saveNewSearch', 'Save As')]]
       </paper-button>
-      <paper-button on-click="_saveSearch" hidden$="[[!_showSave(searchDoc,searchLoaded,dirty)]]">
+      <paper-button noink no-animations on-click="_saveSearch" hidden$="[[!_showSave(searchDoc,searchLoaded,dirty)]]">
          <iron-icon icon="check"></iron-icon>[[i18n('ui.app.savedSearch', 'Save')]]
       </paper-button>
-      <paper-menu-button horizontal-align="right" vertical-offset="40" hidden$="[[!_showOtherSearchActions(searchDoc,searchLoaded,dirty)]]">
-        <paper-icon-button icon="icons:more-vert" class="dropdown-trigger" alt="menu"></paper-icon-button>
+      <paper-menu-button noink no-animations horizontal-align="right" vertical-offset="40" hidden$="[[!_showOtherSearchActions(searchDoc,searchLoaded,dirty)]]">
+        <paper-icon-button icon="icons:settings" class="dropdown-trigger" alt="menu"></paper-icon-button>
         <paper-menu class="dropdown-content layout vertical">
           <paper-item class="layout horizontal center" on-tap="_renameSearch">
             <iron-icon icon="icons:create"></iron-icon>[[i18n('ui.app.renameSearch', 'Rename')]]

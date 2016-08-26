@@ -27,10 +27,6 @@ Contributors:
 <dom-module id="nuxeo-preview-button">
   <template>
     <style is="custom-style" include="shared-styles">
-      :host {
-        display: inline-block;
-      }
-
       ::content iron-icon:hover {
         fill: var(--nuxeo-link-hover-color);
       }
@@ -51,8 +47,9 @@ Contributors:
     </style>
 
     <template is="dom-if" if="[[_isAvailable(document)]]">
-      <paper-icon-button noink icon="icons:visibility" id="previewBut" on-tap="toggleDialog"></paper-icon-button>
-      <paper-tooltip for="previewBut">[[i18n('ui.previewButton.tooltip','Preview')]]</paper-tooltip>
+      <paper-item class="layout horizontal center" id="previewBut" on-tap="toggleDialog">
+        <iron-icon icon="icons:visibility"></iron-icon>[[i18n('ui.previewButton.tooltip','Preview')]]
+      </paper-item>
     </template>
 
     <paper-dialog id="dialog" with-backdrop>

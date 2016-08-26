@@ -59,6 +59,22 @@
         background-color: var(--nuxeo-page-background);
       }
 
+      paper-item {
+        font-size: .9em;
+        min-height: 2.5em;
+      }
+
+      paper-item iron-icon {
+        width: 1em;
+        height: 1em;
+        margin-right: .5em;
+      }
+
+      paper-item:hover {
+        color: var(--nuxeo-link-hover-color);
+        cursor: pointer;
+      }
+
       .paper-header {
         height: 59px;
         color: var(--nuxeo-header-title-color);
@@ -66,7 +82,7 @@
         box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
         font-size: 1.05em;
         font-weight: 600;
-        padding: 0 4.2em 0 1.7em;
+        padding: 0 5.1em 0 1.7em;
         @apply(--layout-horizontal);
         @apply(--layout-center);
       }

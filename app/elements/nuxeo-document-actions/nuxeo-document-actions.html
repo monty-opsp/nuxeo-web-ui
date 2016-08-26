@@ -17,6 +17,9 @@ Contributors:
   Nelson Silva <nsilva@nuxeo.com>
 -->
 
+<!--<link rel="import" href="../../bower_components/polymer/polymer.html">-->
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+
 <link rel="import" href="nuxeo-add-to-collection-button.html">
 <link rel="import" href="nuxeo-favorites-toggle-button.html">
 <link rel="import" href="nuxeo-share-button.html">
@@ -52,17 +55,21 @@ Contributors:
       }
     </style>
 
-    <nuxeo-add-to-collection-button document="[[context.document]]"></nuxeo-add-to-collection-button>
-    <nuxeo-favorites-toggle-button document="[[context.document]]"></nuxeo-favorites-toggle-button>
-    <nuxeo-share-button document="[[context.document]]"></nuxeo-share-button>
-    <nuxeo-notifications-toggle-button document="[[context.document]]"></nuxeo-notifications-toggle-button>
-    <nuxeo-clipboard-toggle-button document="[[context.document]]" clipboard="[[context.clipboard]]"></nuxeo-clipboard-toggle-button>
-    <nuxeo-lock-toggle-button document="[[context.document]]"></nuxeo-lock-toggle-button>
-    <nuxeo-preview-button document="[[context.document]]"></nuxeo-preview-button>
-    <nuxeo-export-button document="[[context.document]]"></nuxeo-export-button>
-    <nuxeo-drive-sync-toggle-button document="[[context.document]]"></nuxeo-drive-sync-toggle-button>
-    <nuxeo-create-version-button document="[[context.document]]"></nuxeo-create-version-button>
-    <nuxeo-download-button document="[[context.document]]"></nuxeo-download-button>
+    <paper-menu-button horizontal-align="right" vertical-offset="40" noink no-animations>
+      <paper-icon-button icon="icons:settings" class="dropdown-trigger" alt="menu" noink no-animations></paper-icon-button>
+      <paper-menu class="dropdown-content layout vertical">
+        <nuxeo-add-to-collection-button document="[[context.document]]"></nuxeo-add-to-collection-button>
+        <nuxeo-favorites-toggle-button document="[[context.document]]"></nuxeo-favorites-toggle-button>
+        <nuxeo-share-button document="[[context.document]]"></nuxeo-share-button>
+        <nuxeo-notifications-toggle-button document="[[context.document]]"></nuxeo-notifications-toggle-button>
+        <nuxeo-clipboard-toggle-button document="[[context.document]]" clipboard="[[context.clipboard]]"></nuxeo-clipboard-toggle-button>
+        <nuxeo-lock-toggle-button document="[[context.document]]"></nuxeo-lock-toggle-button>
+        <nuxeo-preview-button document="[[context.document]]"></nuxeo-preview-button>
+        <nuxeo-export-button document="[[context.document]]"></nuxeo-export-button>
+        <nuxeo-drive-sync-toggle-button document="[[context.document]]"></nuxeo-drive-sync-toggle-button>
+        <nuxeo-create-version-button document="[[context.document]]"></nuxeo-create-version-button>
+        <nuxeo-download-button document="[[context.document]]"></nuxeo-download-button>
+    </paper-menu-button>
 
   </template>
   <script>

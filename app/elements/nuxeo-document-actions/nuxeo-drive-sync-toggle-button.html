@@ -27,10 +27,6 @@ Contributors:
 <dom-module id="nuxeo-drive-sync-toggle-button">
   <template>
     <style is="custom-style" include="shared-styles">
-      :host {
-        display: inline-block;
-      }
-
       ::content iron-icon:hover {
         fill: var(--nuxeo-link-hover-color);
       }
@@ -44,8 +40,9 @@ Contributors:
     <nuxeo-operation id="op" op="NuxeoDrive.SetSynchronization" input="[[document.uid]]"></nuxeo-operation>
 
     <template is="dom-if" if="[[_isAvailable(document, synchronizationRoot)]]">
-      <paper-icon-button id="syncBut" icon="[[_icon(synchronized)]]" on-tap="toggle"></paper-icon-button>
-      <paper-tooltip for="syncBut">[[_tooltip(synchronized)]]</paper-tooltip>
+      <paper-item class="layout horizontal center" id="syncBut" on-tap="toggle">
+        <iron-icon icon="[[_icon(synchronized)]]"></iron-icon>[[_tooltip(synchronized)]]
+      </paper-item>
     </template>
   </template>
 

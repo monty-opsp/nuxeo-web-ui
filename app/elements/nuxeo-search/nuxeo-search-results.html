@@ -27,9 +27,22 @@ Contributors:
 -->
 <dom-module id="nuxeo-search-results">
   <template>
-
     <style is="custom-style" include="shared-styles">
+      paper-dropdown-menu,
+      ::content paper-button,
+      ::content paper-icon-button {
+        background-color: rgba(0,0,0,0.05);
+      }
 
+      ::content paper-menu-button {
+        padding: 0;
+      }
+
+      ::content paper-menu-button,
+      ::content paper-button {
+        margin-left: 1em;
+        border-radius: 0;
+      }
     </style>
 
     <paper-header-panel class="flex">

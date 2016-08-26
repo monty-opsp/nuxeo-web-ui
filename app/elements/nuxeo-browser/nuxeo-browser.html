@@ -39,9 +39,6 @@ Contributors:
       }
 
       paper-dropdown-menu {
-        --paper-input-container-underline: {
-            display: none;
-        };
         --paper-input-container-input: {
           font-size: 1.05em;
           font-weight: 400;
@@ -49,11 +46,18 @@ Contributors:
           text-align: left;
           color: var(--nuxeo-text-default);
         };
-        --paper-dropdown-menu-input: {
-          border-bottom: none;
-        };
-        padding-left: 1em;
         background-color: rgba(0,0,0,0.05);
+      }
+
+      paper-dropdown-menu,
+      ::content paper-button,
+      ::content paper-icon-button {
+        background-color: rgba(0,0,0,0.05);
+      }
+
+      ::content paper-menu-button {
+        padding: 0;
+        margin-left: 1em;
       }
 
       ::content .unfocused-line.paper-input-container {

@@ -30,10 +30,6 @@ Contributors:
   <template>
 
     <style is="custom-style" include="shared-styles">
-      :host {
-        display: inline-block;
-      }
-
       ::content iron-icon:hover {
         fill: var(--nuxeo-link-hover-color);
       }
@@ -52,8 +48,9 @@ Contributors:
       input="[[document.uid]]"></nuxeo-operation>
 
     <template is="dom-if" if="[[_isAvailable(document)]]">
-      <paper-icon-button icon="[[icon]]" id="lockBut"></paper-icon-button>
-      <paper-tooltip for="lockBut" id="lockButTooltip">[[tooltip]]</paper-tooltip>
+      <paper-item class="layout horizontal center" id="lockBut">
+        <iron-icon icon="[[icon]]"></iron-icon>[[tooltip]]
+      </paper-item>
     </template>
 
   </template>

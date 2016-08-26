@@ -27,9 +27,6 @@ Contributors:
 <dom-module id="nuxeo-clipboard-toggle-button">
   <template>
     <style is="custom-style" include="shared-styles">
-      :host {
-        display: inline-block;
-      }
       ::content iron-icon {
         color: var(--nuxeo-header-actions);
       }
@@ -44,9 +41,9 @@ Contributors:
     </style>
 
     <template is="dom-if" if="[[_isAvailable(document)]]">
-      <paper-icon-button noink id="clipboardBut" icon="icons:content-paste" active="[[inClipboard]]" on-tap="toggle">
-      </paper-icon-button>
-      <paper-tooltip for="clipboardBut">[[tooltip]]</paper-tooltip>
+      <paper-item class="layout horizontal center" id="clipboardBut" active="[[inClipboard]]" on-tap="toggle">
+        <iron-icon icon="icons:content-paste"></iron-icon>[[tooltip]]
+      </paper-item>
     </template>
 
   </template>
