@@ -55,9 +55,18 @@ Contributors:
         box-sizing: border-box;
       }
 
-      nuxeo-data-table ::content data-table-checkbox[checked] #container {
-        border-color: #75b226;
-        background-color: #75b226;
+      nuxeo-data-table ::content nuxeo-data-table-checkbox {
+        flex-basis: 30px;
+        border-right: none;
+      }
+
+      nuxeo-data-table ::content #container.nuxeo-data-table-checkbox {
+        border: 1px solid var(--nuxeo-text-light);
+      }
+
+      nuxeo-data-table ::content *[checked] #container.nuxeo-data-table-checkbox {
+        border-color: #75b226 !important;
+        background-color: #75b226 !important;
       }
 
       nuxeo-data-table ::content #container iron-list#list::after {

@@ -28,20 +28,35 @@ Contributors:
 <dom-module id="nuxeo-search-results">
   <template>
     <style is="custom-style" include="shared-styles">
-      paper-dropdown-menu,
-      ::content paper-button,
-      ::content paper-icon-button {
+      .paper-header paper-dropdown-menu {
+        --paper-input-container-input: {
+          font-size: 1.05em;
+          font-weight: 400;
+          font-family: var(--nuxeo-app-font);
+          text-align: left;
+          color: var(--nuxeo-text-default);
+        };
         background-color: rgba(0,0,0,0.05);
       }
 
-      ::content paper-menu-button {
-        padding: 0;
+      .paper-header ::content paper-button,
+      .paper-header ::content paper-icon-button {
+        background-color: rgba(0,0,0,0.05);
       }
 
-      ::content paper-menu-button,
-      ::content paper-button {
+      .paper-header ::content paper-button {
         margin-left: 1em;
-        border-radius: 0;
+      }
+
+      .paper-header ::content paper-button iron-icon {
+        width: 1.2em;
+        height: 1.8em;
+        margin-right: .2em;
+      }
+
+      .paper-header ::content paper-menu-button {
+        padding: 0;
+        margin-left: .8em;
       }
     </style>
 

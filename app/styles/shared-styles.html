@@ -94,7 +94,7 @@
 
       .paper-header {
         height: 59px;
-        color: var(--nuxeo-header-title-color);
+        color: var(--nuxeo-text-default);
         background: var(--nuxeo-header-background);
         box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
         font-size: 1.05em;
@@ -159,6 +159,20 @@
       paper-menu paper-item > *,
       paper-menu paper-icon-item > * {
         pointer-events: none;
+      }
+
+      ::content iron-icon.paper-dropdown-menu {
+        color: var(--nuxeo-link-hover-color);
+      }
+
+      ::content #contentWrapper.iron-dropdown > * {
+        border: var(--nuxeo-border);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+      }
+      ::content .selectable-content.paper-menu > *:focus,
+      ::content .selectable-content.paper-menu  > *:focus:after,
+      ::content .selectable-content.paper-menu  > *:focus:before {
+        background-color: rgba(0,0,0,0.07);
       }
 
       /* Side nav */
