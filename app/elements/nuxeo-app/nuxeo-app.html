@@ -39,7 +39,7 @@ Contributors:
         position: fixed;
         top: 0;
         left: 0;
-        width: 60px;
+        width: 58px;
         z-index: 102;
       }
 
@@ -52,7 +52,7 @@ Contributors:
       }
 
       #sidebar > div {
-        margin-left: 60px;
+        margin-left: 58px;
       }
 
       #sidebar section {
@@ -132,8 +132,9 @@ Contributors:
       }
 
       .side-nav {
-        padding: 60px 0;
+        padding: 58px 0;
         overflow: auto;
+        width: 58px;
         background-color: var(--nuxeo-sidebar-background);
       }
 
@@ -141,7 +142,7 @@ Contributors:
         color: var(--nuxeo-sidebar-actions);
         height: 50px;
         padding: 14px;
-        width: 60px;
+        width: 58px;
       }
 
       .side-nav .iron-selected,
@@ -507,7 +508,7 @@ Contributors:
 
           drawerWidth: {
             type: String,
-            value: '60px'
+            value: '58px'
           },
 
           drawerOpened: {
@@ -678,7 +679,7 @@ Contributors:
 
         _toggleDrawer: function(e) {
           if (this._selected === e.detail.selected && this.drawerOpened) {
-            this.drawerWidth = '60px';
+            this.drawerWidth = '58px';
             this.drawerOpened = false;
           } else {
             this.drawerWidth = '350px';
