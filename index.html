@@ -56,27 +56,6 @@ limitations under the License.
   <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <!-- endbuild -->
 
-  <script>
-    window.Polymer = {
-      lazyRegister: true
-    };
-
-    // switch to shadow dom
-    function getQueryParam(name) {
-      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.href);
-      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-    }
-    if (getQueryParam('dom') == 'shadow') {
-      window.Polymer.dom = 'shadow';
-    }
-
-    // apply theme
-    var link = document.createElement('link');
-    link.setAttribute('rel', 'import');
-    link.setAttribute('href', 'styles/' + (localStorage.getItem('theme') || 'default') + '-theme.html');
-    document.getElementsByTagName('head')[0].appendChild(link);
-  </script>
-
   <!-- build:js vendor/jquery.js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <!-- endbuild-->
@@ -94,18 +73,44 @@ limitations under the License.
   <!-- endbuild -->
 
   <!-- will be replaced with elements/elements.vulcanized.html -->
-  <link rel="import" href="elements/elements.html">
+  <link rel="import" id="bundle" href="elements/elements.html" async>
   <!-- endreplace-->
 
+  <style>
+    #splash {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      /* bring your own prefixes */
+      transform: translate(-50%, -50%);
+    }
+    .image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 64px;
+        height: 64px;
+        margin:-60px 0 0 -60px;
+        -webkit-animation:spin 4s linear infinite;
+        -moz-animation:spin 4s linear infinite;
+        animation:spin 4s linear infinite;
+    }
+    @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+    @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+  </style>
 </head>
 
-<body unresolved>
+<body>
   <span id="browser-sync-binding"></span>
 
   <nuxeo-connection url="/nuxeo"></nuxeo-connection>
 
   <nuxeo-app base-url="/"></nuxeo-app>
 
+  <div id="splash">
+    <img class="image" src="images/touch/icon-128x128.png">
+  </div>
   <!-- Uncomment next block to enable Service Worker support (1/2) -->
   <!--
   <platinum-sw-register auto-register
@@ -116,6 +121,8 @@ limitations under the License.
     </platinum-sw-cache>
   </platinum-sw-register>
   -->
+
+   <script src="elements/app.js" async></script>
 </body>
 
 </html>

@@ -1,0 +1,86 @@
+<!--
+(C) Copyright 2016 Nuxeo SA (http://nuxeo.com/) and others.
+
+Licensed under the Apache License, Version 2.0 (the 'License');
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an 'AS IS' BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Contributors:
+   Guillaume Renard <grenard@nuxeo.com>
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!--
+`nuxeo-app-start-up`
+@group Nuxeo UI
+@element nuxeo-app-start-up
+-->
+<dom-module id="nuxeo-app-start-up">
+  <template>
+
+    <style>
+      :host {
+        display: block;
+      }
+
+      .centered {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        /* bring your own prefixes */
+        transform: translate(-50%, -50%);
+      }
+
+      .image {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 64px;
+          height: 64px;
+          margin:-60px 0 0 -60px;
+          -webkit-animation:spin 4s linear infinite;
+          -moz-animation:spin 4s linear infinite;
+          animation:spin 4s linear infinite;
+      }
+      @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+      @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+      @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+    </style>
+
+    <div id="loadScreen" class="centered">
+      <iron-icon class="image" src$="[[baseUrl]]images/touch/icon-128x128.png"></iron-icon>
+    </div>
+
+  </template>
+</dom-module>
+
+<script>
+  (function() {
+    Polymer({
+      is: 'nuxeo-app-start-up',
+      behaviors: [Nuxeo.I18nBehavior],
+      properties: {
+
+      },
+
+      ready: function() {
+        console.log('ready');
+      },
+
+      attached: function() {
+        console.log('attached');
+      }
+
+    });
+  })();
+</script>
